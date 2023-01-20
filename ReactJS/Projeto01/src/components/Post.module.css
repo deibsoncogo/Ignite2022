@@ -22,6 +22,8 @@
   font-weight: bold;
   color: var(--green-500);
   text-decoration: none;
+  cursor: default;
+  box-shadow: unset !important;
 }
 
 .content a:hover {

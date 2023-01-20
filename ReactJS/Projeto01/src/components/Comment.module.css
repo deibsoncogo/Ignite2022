@@ -65,6 +65,7 @@
   align-items: center;
 
   border-radius: 2px;
+  box-shadow: unset !important;
 }
 
 .commentBox footer button:hover {

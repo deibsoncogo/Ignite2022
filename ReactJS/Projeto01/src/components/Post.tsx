@@ -23,7 +23,7 @@ interface TPostPros {
 }
 
 export function Post({ author, publishedAt, content }: TPostPros) {
-  const [comments, setComments] = useState(['Post muito bacana, hein?!'])
+  const [comments, setComments] = useState<string[]>([])
   const [newCommentText, setNewCommentText] = useState('')
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -82,7 +82,7 @@ export function Post({ author, publishedAt, content }: TPostPros) {
           if (line.type === 'paragraph') {
             return <p key={Math.random()}>{line.content}</p>
           } else if (line.type === 'link') {
-            return <p key={Math.random()}><a href="#">{line.content}</a></p>
+            return <p key={Math.random()}><a tabIndex={-1} href="#">{line.content}</a></p>
           }
         })}
 

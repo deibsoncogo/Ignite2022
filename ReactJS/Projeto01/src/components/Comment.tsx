@@ -1,3 +1,5 @@
+import { format } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { ThumbsUp, Trash } from 'phosphor-react'
 import { useState } from 'react'
 import { Avatar } from './Avatar'
@@ -10,6 +12,11 @@ interface ICommentProps {
 
 export function Comment({ content, onDeleteComment }: ICommentProps) {
   const [likeCount, setLikeCount] = useState(0)
+  const publishedAt = new Date()
+
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+    locale: ptBR,
+  })
 
   function handleDeleteComment() {
     onDeleteComment(content)
@@ -21,17 +28,17 @@ export function Comment({ content, onDeleteComment }: ICommentProps) {
 
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://randomuser.me/api/portraits/men/81.jpg" />
+      <Avatar hasBorder={false} src="https://randomuser.me/api/portraits/women/9.jpg" />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
             <div className={styles.authorAndTime}>
-              <strong>Arthur Bryan Aragão</strong>
-              <time title="11 de Maio às 08:13h" dateTime="2022-05-11 08:13:00">Cerca de 1h atrás</time>
+              <strong>Carolina Hadassa Almeida</strong>
+              <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>{publishedDateFormatted}</time>
             </div>
 
-            <button onClick={handleDeleteComment} title="Deletar comentário">
+            <button className={styles.test} onClick={handleDeleteComment} title="Deletar comentário">
               <Trash size={24} />
             </button>
           </header>
@@ -40,7 +47,7 @@ export function Comment({ content, onDeleteComment }: ICommentProps) {
         </div>
 
         <footer>
-          <button onClick={handleLikeComment}>
+          <button onClick={handleLikeComment} tabIndex={-1}>
             <ThumbsUp />
             Aplaudir <span>{likeCount}</span>
           </button>

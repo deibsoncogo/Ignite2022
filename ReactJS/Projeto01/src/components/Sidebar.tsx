@@ -11,9 +11,9 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <Avatar src="https://randomuser.me/api/portraits/women/75.jpg" />
+        <Avatar src="https://randomuser.me/api/portraits/women/9.jpg" />
 
-        <strong>Ester Isabela Alice Baptista</strong>
+        <strong>Carolina Hadassa Almeida</strong>
         <span>Web Developer</span>
       </div>
 
