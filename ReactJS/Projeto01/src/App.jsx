@@ -1,3 +1,4 @@
+import posts from './api/posts.json';
 import styles from './App.module.css';
 import { Header } from './components/Header';
 import { Post } from './components/Post';
@@ -13,8 +14,16 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post />
-          <Post />
+          {posts.map(post => {
+            return (
+              <Post
+                key={post.id}
+                author={post.author}
+                content={post.content}
+                publishedAt={new Date(post.publishedAt)}
+              />
+            )
+          })}
         </main>
       </div>
     </>

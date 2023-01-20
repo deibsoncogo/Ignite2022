@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "author": {
+      "avatarUrl": "https://randomuser.me/api/portraits/men/81.jpg",
+      "name": "Arthur Bryan Aragão",
+      "role": "CTO @Rocketseat"
+    },
+    "content": [
+      { "type": "paragraph", "content": "Lorem ipsum platea sociosqu dapibus amet nunc id, taciti per ultrices etiam tempor blandit, habitant platea porta sit elementum diam."},
+      { "type": "paragraph", "content": "Gravida tortor eleifend mi nisi cubilia, fusce lacinia molestie laoreet." },
+      { "type": "link", "content": "arthur.design/doc-1"}
+    ],
+    "publishedAt": "2023-01-20 14:35:42"
+  },
+  {
+    "id": 2,
+    "author": {
+      "avatarUrl": "https://randomuser.me/api/portraits/men/78.jpg",
+      "name": "Iago Cauã Ruan Teixeira",
+      "role": "Educator @Rocketseat"
+    },
+    "content": [
+      { "type": "paragraph", "content": "Lorem ipsum per fringilla velit convallis, volutpat sit euismod quis habitasse convallis, lorem proin ut neque fringilla, consequat scelerisque sagittis cubilia." },
+      { "type": "paragraph", "content": "Egestas cras ornare bibendum senectus suscipit praesent nisl volutpat, praesent suscipit orci per nostra neque." },
+      { "type": "paragraph", "content": "Quis molestie neque cras curabitur eu dapibus nam, ultrices sapien nullam non mauris dictum." },
+      { "type": "link", "content": "iago.design/doc-2" }
+    ],
+    "publishedAt": "2022-08-15 07:14:58"
+  },
+  {
+    "id": 3,
+    "author": {
+      "avatarUrl": "https://randomuser.me/api/portraits/women/75.jpg",
+      "name": "Ester Isabela Alice Baptista",
+      "role": "Educator @Rocketseat"
+    },
+    "content": [
+      { "type": "paragraph", "content": "Lorem ipsum urna etiam curabitur sodales habitasse vulputate lobortis, nisi egestas lacus nostra feugiat lacinia bibendum." },
+      { "type": "paragraph", "content": "Fringilla felis dolor justo consequat sit cubilia, etiam ut nam tortor augue euismod, eleifend conubia gravida vitae tempor." },
+      { "type": "paragraph", "content": "Urna tempus nam quam consequat sit ad porttitor dolor neque, quisque et cras magna ut lacinia habitant porta nam, phasellus nunc elementum laoreet posuere odio fusce id." },
+      { "type": "paragraph", "content": "Primis erat ut est venenatis cursus, nam lobortis sollicitudin." },
+      { "type": "link", "content": "ester.design/doc-3" }
+    ],
+    "publishedAt": "2022-05-03 20:00:00"
+  }
+]
