@@ -1,9 +1,9 @@
-import posts from './api/posts.json';
-import styles from './App.module.css';
-import { Header } from './components/Header';
-import { Post } from './components/Post';
-import { Sidebar } from './components/Sidebar';
-import './styles.css';
+import posts from './api/posts.json'
+import styles from './App.module.css'
+import { Header } from './components/Header'
+import { Post } from './components/Post'
+import { Sidebar } from './components/Sidebar'
+import './styles.css'
 
 export function App() {
   return (

@@ -7,9 +7,9 @@
       "role": "CTO @Rocketseat"
     },
     "content": [
-      { "type": "paragraph", "content": "Lorem ipsum platea sociosqu dapibus amet nunc id, taciti per ultrices etiam tempor blandit, habitant platea porta sit elementum diam."},
+      { "type": "paragraph", "content": "Lorem ipsum platea sociosqu dapibus amet nunc id, taciti per ultrices etiam tempor blandit, habitant platea porta sit elementum diam." },
       { "type": "paragraph", "content": "Gravida tortor eleifend mi nisi cubilia, fusce lacinia molestie laoreet." },
-      { "type": "link", "content": "arthur.design/doc-1"}
+      { "type": "link", "content": "arthur.design/doc-1" }
     ],
     "publishedAt": "2023-01-20 14:35:42"
   },
