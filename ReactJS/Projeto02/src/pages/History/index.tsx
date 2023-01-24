@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { formatDistanceToNow } from 'date-fns'
+import { formatDistanceToNow, format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
 import { CyclesContext } from '../../contexts/CyclesContext'
 import * as S from './styles'
@@ -17,28 +17,23 @@ export function History() {
             <tr>
               <th>Tarefa</th>
               <th>Duração</th>
-              <th>Duração</th>
+              <th>Criado</th>
               <th>Status</th>
             </tr>
           </thead>
 
           <tbody>
-            {cycles.map((cycle) => (
-              <tr key={cycle.id}>
-                <td>{cycle.task}</td>
-                <td>{cycle.minutesAmount} minutos</td>
-                <td>
-                  {formatDistanceToNow(new Date(cycle.startDate), {
-                    addSuffix: true,
-                    locale: ptBR,
-                  })}
+            {cycles.map(({ id, task, minutesAmount, startDate, interruptedDate, finishedDate }) => (
+              <tr key={id}>
+                <td>{task}</td>
+                <td>{minutesAmount} minutos</td>
+                <td title={format(new Date(startDate), 'd \'de\' LLLL \'de\' yyyy \'às\' HH:mm', { locale: ptBR })}>
+                  {formatDistanceToNow(new Date(startDate), { addSuffix: true, locale: ptBR })}
                 </td>
                 <td>
-                  {cycle.finishedDate && (<S.Status statusColor="green">Concluído</S.Status>)}
-                  {cycle.interruptedDate && (<S.Status statusColor="red">Interrompido</S.Status>)}
-                  {!cycle.finishedDate && !cycle.interruptedDate && (
-                    <S.Status statusColor="yellow">Em andamento</S.Status>
-                  )}
+                  {finishedDate && (<S.Status statusColor="green">Concluído</S.Status>)}
+                  {interruptedDate && (<S.Status statusColor="red">Interrompido</S.Status>)}
+                  {!finishedDate && !interruptedDate && (<S.Status statusColor="yellow">Em andamento</S.Status>)}
                 </td>
               </tr>
             ))}
