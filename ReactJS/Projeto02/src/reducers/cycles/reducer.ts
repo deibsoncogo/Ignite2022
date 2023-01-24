@@ -30,6 +30,8 @@ export function cyclesReducer(state: CyclesState, action: any) {
         return state
       }
 
+      document.title = 'Ignite Timer'
+
       return produce(state, (draft) => {
         draft.activeCycleId = null
         draft.cycles[currentCycleIndex].interruptedDate = new Date()
@@ -42,6 +44,8 @@ export function cyclesReducer(state: CyclesState, action: any) {
       if (currentCycleIndex < 0) {
         return state
       }
+
+      document.title = 'Ignite Timer'
 
       return produce(state, (draft) => {
         draft.activeCycleId = null
