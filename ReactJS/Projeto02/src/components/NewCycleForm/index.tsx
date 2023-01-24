@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { CyclesContext } from '../../../../contexts/CyclesContext'
-import { CyclesState } from '../../../../reducers/cycles/reducer'
+import { CyclesContext } from '../../contexts/CyclesContext'
+import { CyclesState } from '../../reducers/cycles/reducer'
 import * as S from './styles'
 
 export function NewCycleForm() {
