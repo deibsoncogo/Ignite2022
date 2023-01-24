@@ -6,7 +6,7 @@ import * as zod from 'zod'
 import { CyclesContext } from '../../contexts/CyclesContext'
 import { Countdown } from './Components/Countdown'
 import { NewCycleForm } from './Components/NewCycleForm'
-import { HomeContainer, StartCountdownButton, StopCountdownButton } from './styles'
+import * as S from './styles'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
@@ -34,7 +34,7 @@ export function Home() {
   const isSubmitDisable = !task
 
   return (
-    <HomeContainer>
+    <S.HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)}>
         <FormProvider {...newCycleForm}>
           <NewCycleForm />
@@ -43,17 +43,17 @@ export function Home() {
         <Countdown />
 
         {activeCycle ? (
-          <StopCountdownButton onClick={interruptCurrentCycle} type="button">
+          <S.StopCountdownButton onClick={interruptCurrentCycle} type="button">
             <HandPalm size={24} />
             Interromper
-          </StopCountdownButton>
+          </S.StopCountdownButton>
         ) : (
-          <StartCountdownButton disabled={isSubmitDisable} type="submit">
+          <S.StartCountdownButton disabled={isSubmitDisable} type="submit">
             <Play size={24} />
             Começar
-          </StartCountdownButton>
+          </S.StartCountdownButton>
         )}
       </form>
-    </HomeContainer>
+    </S.HomeContainer>
   )
 }
