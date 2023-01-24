@@ -21,6 +21,7 @@ const BaseInput = styled.input`
   font-size: 1.125rem;
   padding: 0 0.5rem;
   color: ${(props) => props.theme['gray-100']};
+  text-align: center;
 
   &:focus {
     box-shadow: none;

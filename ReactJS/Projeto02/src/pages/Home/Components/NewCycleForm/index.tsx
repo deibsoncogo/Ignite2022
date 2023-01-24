@@ -1,38 +1,48 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { CyclesContext } from '../../../../contexts/CyclesContext'
+import { CyclesState } from '../../../../reducers/cycles/reducer'
 import * as S from './styles'
 
 export function NewCycleForm() {
   const { activeCycle } = useContext(CyclesContext)
   const { register } = useFormContext()
+  const [taskSuggestions, setTaskSuggestions] = useState<string[]>([])
+
+  useEffect(() => {
+    const cyclesStateStorageString = localStorage.getItem('@ignite-timer:cycles-state-1.0.0')
+
+    if (cyclesStateStorageString) {
+      const { cycles }: CyclesState = JSON.parse(cyclesStateStorageString)
+      const cyclesNames = cycles.slice(0, 20).map((cycle) => cycle.task)
+
+      setTaskSuggestions([...new Set(cyclesNames)].slice(0, 10))
+    }
+  }, [activeCycle])
 
   return (
     <S.FormContainer>
       <label htmlFor="task">Vou trabalhar em</label>
       <S.TaskInput
         id="task"
+        type="text"
+        placeholder="Projeto A - Criação CRUD"
         list="task-suggestions"
-        placeholder="Dê um nome para o seu projeto"
         disabled={!!activeCycle}
         {...register('task')}
       />
 
       <datalist id="task-suggestions">
-        <option value="Projeto 1" />
-        <option value="Projeto 2" />
-        <option value="Projeto 3" />
-        <option value="Banana" />
+        {taskSuggestions.map((taskName) => <option value={taskName} key={taskName} />)}
       </datalist>
 
       <label htmlFor="minutesAmount">durante</label>
       <S.MinutesAmountInput
-        type="number"
         id="minutesAmount"
-        placeholder="00"
-        step={5}
+        type="number"
+        placeholder="0"
         min={5}
-        max={60}
+        max={99}
         disabled={!!activeCycle}
         {...register('minutesAmount', { valueAsNumber: true })}
       />

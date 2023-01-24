@@ -10,7 +10,7 @@ import * as S from './styles'
 
 const newCycleFormValidationSchema = zod.object({
   task: zod.string().min(1, 'Informe a tarefa'),
-  minutesAmount: zod.number().min(5, 'Tempo mínimo de 5 minutos').max(60, 'Tempo máximo de 60 minutos'),
+  minutesAmount: zod.number().min(5, 'Tempo mínimo de 5 minutos').max(99, 'Tempo máximo de 99 minutos'),
 })
 
 type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
@@ -18,10 +18,7 @@ type NewCycleFormData = zod.infer<typeof newCycleFormValidationSchema>
 export function Home() {
   const { activeCycle, createNewCycle, interruptCurrentCycle } = useContext(CyclesContext)
 
-  const newCycleForm = useForm<NewCycleFormData>({
-    resolver: zodResolver(newCycleFormValidationSchema),
-    defaultValues: { task: '', minutesAmount: 0 },
-  })
+  const newCycleForm = useForm<NewCycleFormData>({ resolver: zodResolver(newCycleFormValidationSchema) })
 
   const { handleSubmit, watch, reset } = newCycleForm
 
