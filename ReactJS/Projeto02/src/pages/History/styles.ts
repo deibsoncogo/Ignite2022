@@ -2,9 +2,10 @@ import styled from 'styled-components'
 
 export const HistoryContainer = styled.main`
   flex: 1;
-  padding: 3.5rem;
+  padding: 3.5rem 3.5rem 0;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   h1 {
     font-size: 1.5rem;
@@ -16,6 +17,7 @@ export const HistoryList = styled.div`
   flex: 1;
   overflow: auto;
   margin-top: 2rem;
+  padding-right: 5px;
 
   table {
     width: 100%;
@@ -29,6 +31,8 @@ export const HistoryList = styled.div`
       color: ${(props) => props.theme['gray-100']};
       font-size: 0.875rem;
       line-height: 1.6;
+      position: sticky;
+      top: 0;
 
       &:first-child {
         border-top-left-radius: 8px;
@@ -57,6 +61,30 @@ export const HistoryList = styled.div`
         padding-right: 1.5rem;
       }
     }
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 9999px;
+    background: ${(props) => props.theme['gray-600']};
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme['gray-800']};
+    border-radius: 9999px;
+    border: 1px solid ${(props) => props.theme['gray-600']};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: ${(props) => props.theme['gray-900']};
+  }
+
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
   }
 `
 
