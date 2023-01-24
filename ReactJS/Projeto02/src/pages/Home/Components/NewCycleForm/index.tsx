@@ -37,7 +37,7 @@ export function NewCycleForm() {
         {...register('minutesAmount', { valueAsNumber: true })}
       />
 
-      <span>minutos.</span>
+      <span>minutos</span>
     </FormContainer>
   )
 }

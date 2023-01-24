@@ -1,16 +1,6 @@
+import { createContext, ReactNode, useEffect, useReducer, useState } from 'react'
 import { differenceInSeconds } from 'date-fns'
-import {
-  createContext,
-  ReactNode,
-  useEffect,
-  useReducer,
-  useState,
-} from 'react'
-import {
-  addNewCycleAction,
-  interruptCurrentCycleAction,
-  markCurrentCycleAsFinishedAction,
-} from '../reducers/cycles/actions'
+import { addNewCycleAction, interruptCurrentCycleAction, markCurrentCycleAsFinishedAction } from '../reducers/cycles/actions'
 import { Cycle, cyclesReducer } from '../reducers/cycles/reducer'
 
 interface CreateCycleData {
@@ -35,28 +25,18 @@ interface CyclesContextProviderProps {
   children: ReactNode
 }
 
-export function CyclesContextProvider({
-  children,
-}: CyclesContextProviderProps) {
+export function CyclesContextProvider({ children }: CyclesContextProviderProps) {
   const [cyclesState, dispatch] = useReducer(
     cyclesReducer,
-    {
-      cycles: [],
-      activeCycleId: null,
-    },
+    { cycles: [], activeCycleId: null },
     () => {
-      const storedStateAsJSON = localStorage.getItem(
-        '@ignite-timer:cycles-state-1.0.0',
-      )
+      const storedStateAsJSON = localStorage.getItem('@ignite-timer:cycles-state-1.0.0')
 
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON)
       }
 
-      return {
-        cycles: [],
-        activeCycleId: null,
-      }
+      return { cycles: [], activeCycleId: null }
     },
   )
 
@@ -73,7 +53,6 @@ export function CyclesContextProvider({
 
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
-
     localStorage.setItem('@ignite-timer:cycles-state-1.0.0', stateJSON)
   }, [cyclesState])
 
@@ -88,15 +67,9 @@ export function CyclesContextProvider({
   function createNewCycle(data: CreateCycleData) {
     const id = String(new Date().getTime())
 
-    const newCycle: Cycle = {
-      id,
-      task: data.task,
-      minutesAmount: data.minutesAmount,
-      startDate: new Date(),
-    }
+    const newCycle: Cycle = { id, task: data.task, minutesAmount: data.minutesAmount, startDate: new Date() }
 
     dispatch(addNewCycleAction(newCycle))
-
     setAmountSecondsPassed(0)
   }
 

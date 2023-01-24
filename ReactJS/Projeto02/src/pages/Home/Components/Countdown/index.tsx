@@ -1,5 +1,5 @@
-import { differenceInSeconds } from 'date-fns'
 import { useContext, useEffect } from 'react'
+import { differenceInSeconds } from 'date-fns'
 import { CyclesContext } from '../../../../contexts/CyclesContext'
 import { CountdownContainer, Separator } from './styles'
 
@@ -19,14 +19,10 @@ export function Countdown() {
 
     if (activeCycle) {
       interval = setInterval(() => {
-        const secondsDifference = differenceInSeconds(
-          new Date(),
-          new Date(activeCycle.startDate),
-        )
+        const secondsDifference = differenceInSeconds(new Date(), new Date(activeCycle.startDate))
 
         if (secondsDifference >= totalSeconds) {
           markCurrentCycleAsFinished()
-
           setSecondsPassed(totalSeconds)
           clearInterval(interval)
         } else {
@@ -35,16 +31,8 @@ export function Countdown() {
       }, 1000)
     }
 
-    return () => {
-      clearInterval(interval)
-    }
-  }, [
-    activeCycle,
-    totalSeconds,
-    activeCycleId,
-    setSecondsPassed,
-    markCurrentCycleAsFinished,
-  ])
+    return () => { clearInterval(interval) }
+  }, [activeCycle, totalSeconds, activeCycleId, setSecondsPassed, markCurrentCycleAsFinished])
 
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
 
@@ -55,9 +43,7 @@ export function Countdown() {
   const seconds = String(secondsAmount).padStart(2, '0')
 
   useEffect(() => {
-    if (activeCycle) {
-      document.title = `${minutes}:${seconds}`
-    }
+    if (activeCycle) { document.title = `${minutes}:${seconds}` }
   }, [minutes, seconds, activeCycle])
 
   return (
