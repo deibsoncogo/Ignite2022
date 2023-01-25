@@ -18,7 +18,7 @@ O frontend será executado na porta `5173`.
 
 ## Imagens
 ### Tela principal sem comentário
-![Tela principal sem comentário](/Projeto01/src/assets/prints/print1.png)
+![Tela principal sem comentário](src/assets/prints/print1.png)
 
 ### Tela principal com comentários
-![Tela principal com comentários](/Projeto01/src/assets/prints/print2.png)
+![Tela principal com comentários](src/assets/prints/print2.png)
