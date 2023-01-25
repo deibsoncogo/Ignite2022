@@ -18,10 +18,10 @@ O frontend será executado na porta `5173`.
 
 ## Imagens
 ### Tela principal
-![Tela principal](/Projeto02/src/assets/prints/print1.png)
+![Tela principal](src/assets/prints/print1.png)
 
 ### Ciclo em execução
-![Ciclo em execução](/Projeto02/src/assets/prints/print2.png)
+![Ciclo em execução](src/assets/prints/print2.png)
 
 ### Histórico de ciclos
-![Histórico de ciclos](/Projeto02/src/assets/prints/print3.png)
+![Histórico de ciclos](src/assets/prints/print3.png)
