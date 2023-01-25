@@ -1,7 +1,9 @@
 # Ignite Timer - 2022
-Nesse módulo foi construído uma aplicação completa com roteamento e diversos conceitos importantes do ecossistema React como ContextAPI, useReducer, immer e muito mais.
+Nesse módulo foi construído uma aplicação completa com roteamento e diversos conceitos importantes do ecossistema React JS como ContextAPI, useReducer, immer e muito mais.
 
 A aplicação é uma implementação da técnica de foco Pomodoro com uma segunda página mostrando um histórico de ciclos já criado.
+
+#reactjs #typescript #styledcomponents #vite #datefns #hookform #immer #phosphorreact #eslint #dev #frontend #rocketseat
 
 ## Executando a aplicação
 Utilize o comando abaixo para instalar as dependências necessárias:

@@ -1,7 +1,9 @@
 # Ignite Feed - 2022
-Nesse módulo foi criado uma aplicação React utilizando o Vite e aprendendo sobre os conceitos mais importantes do React, entre eles estão componentização, propriedades, estados, imutabilidade e hooks, além de aplicar o TypeScript no projeto para adicionar tipagem estática à aplicação.
+Nesse módulo foi criado uma aplicação React JS utilizando o Vite e aprendendo sobre os conceitos mais importantes do React JS, entre eles estão componentização, propriedades, estados, imutabilidade e hooks, além de aplicar o TypeScript no projeto para adicionar tipagem estática à aplicação.
 
-A aplicação é uma página onde outros usuários podem realizar postagens de texto e o usuário logado consegue realizar comentários.
+A aplicação é uma página onde outros usuários podem realizar postagens de texto e o usuário consegue realizar comentários.
+
+#reactjs #typescript #cssmodule #vite #datefns #phosphorreact #dev #frontend #rocketseat
 
 ## Executando a aplicação
 Utilize o comando abaixo para instalar as dependências necessárias:
