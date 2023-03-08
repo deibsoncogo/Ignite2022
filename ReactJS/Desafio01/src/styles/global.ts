@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-export const GlobalStyle = createGlobalStyle`
+export default createGlobalStyle`
   * {
     margin: 0;
     padding: 0;
@@ -10,8 +10,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    color: #808080;
-    background-color: #1A1A1A;
+    color: ${({ theme }) => theme.text};
+    background-color: ${({ theme }) => theme.background};
 
     button {
       cursor: pointer;
