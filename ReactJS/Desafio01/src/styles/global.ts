@@ -5,6 +5,11 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
 
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+
     outline: none;
     box-sizing: border-box;
   }
