@@ -11,6 +11,7 @@ export default createGlobalStyle`
     font-size: 1rem;
 
     outline: none;
+    user-select: none;
     box-sizing: border-box;
   }
 
