@@ -44,6 +44,14 @@ export function Home({ tasks }: IProps) {
     localStorage.setItem('@Ignite2022Desafio1:tasks', JSON.stringify(result))
   }
 
+  function handleDeleteTask(id: string): void {
+    const result = tasksList.filter((task) => task.id !== id)
+
+    setTasksList(result)
+
+    localStorage.setItem('@Ignite2022Desafio1:tasks', JSON.stringify(result))
+  }
+
   useEffect(() => {
     setTaskInformation({
       amount: tasksList.length,
@@ -108,7 +116,9 @@ export function Home({ tasks }: IProps) {
 
                     <p>{description}</p>
 
-                    <button type="button" data-type="trash"><FaTrash /></button>
+                    <button type="button" data-type="trash" onClick={() => { handleDeleteTask(id) }}>
+                      <FaTrash />
+                    </button>
                   </S.YesTask>
                 ))}
               </>
