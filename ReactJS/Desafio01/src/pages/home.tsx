@@ -2,6 +2,7 @@ import { FormEvent, useEffect, useState } from 'react'
 import { FaCheckCircle, FaCircleNotch, FaTrash } from 'react-icons/fa'
 import { HiPlus } from 'react-icons/hi'
 import { MdAttachFile } from 'react-icons/md'
+import { v4 as uuid } from 'uuid'
 import logo from '../assets/logo.svg'
 import { ITask } from '../interfaces/task'
 import { ITaskInformation } from '../interfaces/taskInformation'
@@ -22,7 +23,7 @@ export function Home({ tasks }: IProps) {
     if (newTask.length === 0) { throw new Error('Nenhuma tarega foi descrita') }
 
     const data = [
-      { description: newTask, isCheck: false, timestamp: new Date().getTime() },
+      { id: uuid(), description: newTask, isCheck: false, timestamp: new Date().getTime() },
       ...tasksList,
     ]
 
