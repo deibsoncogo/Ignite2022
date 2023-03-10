@@ -33,6 +33,17 @@ export function Home({ tasks }: IProps) {
     localStorage.setItem('@Ignite2022Desafio1:tasks', JSON.stringify(data))
   }
 
+  function handleToggleCheckTask(id: string): void {
+    const result = tasksList.map((task) => {
+      if (task.id === id) { task.isCheck = !task.isCheck }
+      return task
+    })
+
+    setTasksList(result)
+
+    localStorage.setItem('@Ignite2022Desafio1:tasks', JSON.stringify(result))
+  }
+
   useEffect(() => {
     setTaskInformation({
       amount: tasksList.length,
@@ -89,9 +100,9 @@ export function Home({ tasks }: IProps) {
               </S.NoTask>
             ) : (
               <>
-                {tasksList.map(({ description, isCheck, timestamp }) => (
-                  <S.YesTask isCheck={isCheck} key={timestamp}>
-                    <button type="button" data-type="circle">
+                {tasksList.map(({ id, description, isCheck }) => (
+                  <S.YesTask isCheck={isCheck} key={id}>
+                    <button type="button" data-type="check" onClick={() => { handleToggleCheckTask(id) }}>
                       {isCheck ? <FaCheckCircle /> : <FaCircleNotch />}
                     </button>
 

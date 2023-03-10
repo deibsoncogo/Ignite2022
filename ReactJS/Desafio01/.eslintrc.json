@@ -1,7 +1,8 @@
 {
   "rules": {
-    "jsx-a11y/control-has-associated-label": "off",
     "import/order": "off",
+    "no-param-reassign": "off",
+    "jsx-a11y/control-has-associated-label": "off",
     "react/jsx-props-no-spreading": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-one-expression-per-line": "off",
@@ -15,7 +16,7 @@
     "object-curly-newline": ["error", { "consistent": true, "multiline": true, "minProperties": 15 }], // quebra de importações
     "import-helpers/order-imports": ["warn", { "groups": [["/^react/", "/^next/", "/^nest/", "/^adonis/", "/^express/", "/^typeorm/", "/^prisma/"], "module", ["parent", "sibling", "index"], ["/style/", "/css/"]], "newlinesBetween": "never", "alphabetize": { "order": "asc", "ignoreCase": true }}], // ordena importações
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "react/jsx-filename-extension": [1, {	"extensions": [".tsx"] }],
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
