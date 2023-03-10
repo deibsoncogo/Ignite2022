@@ -3,7 +3,7 @@ import { FaCheckCircle, FaCircleNotch, FaTrash } from 'react-icons/fa'
 import { HiPlus } from 'react-icons/hi'
 import { MdAttachFile } from 'react-icons/md'
 import logo from '../assets/logo.svg'
-import * as S from '../styles'
+import * as S from '../styles/home'
 
 export function Home() {
   const [isTask, setIsTask] = useState(!false)
