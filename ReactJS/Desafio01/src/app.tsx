@@ -6,12 +6,23 @@ import { defaultTheme } from './styles/theme'
 import { ThemeProvider } from 'styled-components'
 
 export function App() {
-  const tasksUseState = useState<ITask[]>(() => {
-    const tasksString = localStorage.getItem('@Ignite2022Desafio1:tasks')
+  const tasksPendingUseState = useState<ITask[]>(() => {
+    const tasksPendingString = localStorage.getItem('@Ignite2022Desafio1:tasksPending')
 
-    if (tasksString) {
-      const tasksJson = JSON.parse(tasksString)
-      return tasksJson
+    if (tasksPendingString) {
+      const tasksPendingJson = JSON.parse(tasksPendingString)
+      return tasksPendingJson
+    }
+
+    return []
+  })
+
+  const tasksCheckedUseState = useState<ITask[]>(() => {
+    const tasksCheckedString = localStorage.getItem('@Ignite2022Desafio1:tasksChecked')
+
+    if (tasksCheckedString) {
+      const tasksCheckedJson = JSON.parse(tasksCheckedString)
+      return tasksCheckedJson
     }
 
     return []
@@ -20,7 +31,7 @@ export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <Home tasks={tasksUseState[0]} />
+      <Home tasksPending={tasksPendingUseState[0]} tasksChecked={tasksCheckedUseState[0]} />
     </ThemeProvider>
   )
 }
