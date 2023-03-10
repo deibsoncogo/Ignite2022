@@ -1,5 +1,6 @@
 {
   "rules": {
+    "jsx-a11y/control-has-associated-label": "off",
     "import/order": "off",
     "react/jsx-props-no-spreading": "off",
     "react/destructuring-assignment": "off",
