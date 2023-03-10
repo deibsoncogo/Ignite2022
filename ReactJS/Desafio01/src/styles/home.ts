@@ -24,7 +24,7 @@ export const Aside = styled.aside`
 
   background: linear-gradient(${({ theme }) => theme.gray700} 50%, transparent 50%);
 
-  section {
+  form {
     display: inline-flex;
     flex-direction: row;
     align-items: center;
