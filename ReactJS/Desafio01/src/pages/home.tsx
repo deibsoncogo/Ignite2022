@@ -24,46 +24,40 @@ export function Home(props: IProps) {
 
     const data: ITask[] = [{ id: uuid(), description: newDescriptionTask }, ...tasksPending]
 
+    localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(data))
+
     setTasksPending(data)
     setNewDescriptionTask('')
-
-    localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(data))
   }
 
   function handleToggleCheckTask(isChecked: boolean, task: ITask): void {
-    if (isChecked) {
-      const newTasksChecked = tasksChecked.filter((f) => f.id !== task.id)
-      const newTasksPending = [task, ...tasksPending]
+    const newTasksA = (isChecked ? tasksChecked : tasksPending).filter((item) => item.id !== task.id)
+    const newTasksB = [task, ...(!isChecked ? tasksChecked : tasksPending)]
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksChecked', JSON.stringify(newTasksChecked))
-      setTasksChecked(newTasksChecked)
+    localStorage.setItem(
+      `@Ignite2022Desafio1:tasks${isChecked ? 'Checked' : 'Pending'}`,
+      JSON.stringify(newTasksA),
+    )
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(newTasksPending))
-      setTasksPending(newTasksPending)
-    } else {
-      const newTasksPending = tasksPending.filter((f) => f.id !== task.id)
-      const newTasksChecked = [task, ...tasksChecked]
+    if (isChecked) { setTasksChecked(newTasksA) } else { setTasksPending(newTasksA) }
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(newTasksPending))
-      setTasksPending(newTasksPending)
+    localStorage.setItem(
+      `@Ignite2022Desafio1:tasks${!isChecked ? 'Checked' : 'Pending'}`,
+      JSON.stringify(newTasksB),
+    )
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksChecked', JSON.stringify(newTasksChecked))
-      setTasksChecked(newTasksChecked)
-    }
+    if (!isChecked) { setTasksChecked(newTasksB) } else { setTasksPending(newTasksB) }
   }
 
   function handleDeleteTask(isChecked: boolean, id: string): void {
-    if (isChecked) {
-      const newTasksChecked = tasksChecked.filter((f) => f.id !== id)
+    const newTasks = (isChecked ? tasksChecked : tasksPending).filter((item) => item.id !== id)
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksChecked', JSON.stringify(newTasksChecked))
-      setTasksChecked(newTasksChecked)
-    } else {
-      const newTasksPending = tasksPending.filter((f) => f.id !== id)
+    localStorage.setItem(
+      `@Ignite2022Desafio1:tasks${isChecked ? 'Checked' : 'Pending'}`,
+      JSON.stringify(newTasks),
+    )
 
-      localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(newTasksPending))
-      setTasksPending(newTasksPending)
-    }
+    if (isChecked) { setTasksChecked(newTasks) } else { setTasksPending(newTasks) }
   }
 
   return (
