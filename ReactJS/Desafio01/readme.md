@@ -9,6 +9,8 @@ Nesse desafio foi desenvolvido uma aplicação de controle de tarefas no formato
 
 Clique [aqui](https://ignite2022desafio1.vercel.app/) para acessar o site em produção.
 
+<a href="https://ignite2022desafio1.vercel.app/" target="_blank">aqui</a>
+
 ## Executando a aplicação
 Utilize o comando abaixo para instalar as dependências necessárias:
 ```bash
