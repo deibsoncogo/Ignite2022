@@ -4,6 +4,7 @@ import { HiPlus } from 'react-icons/hi'
 import { MdAttachFile } from 'react-icons/md'
 import { v4 as uuid } from 'uuid'
 import logo from '../assets/logo.svg'
+import { useLocalStorageHook } from '../hooks/localStorageHook'
 import { ITask } from '../interfaces/task'
 import * as S from '../styles/home'
 
@@ -17,6 +18,8 @@ export function Home(props: IProps) {
   const [tasksChecked, setTasksChecked] = useState<ITask[]>(props.tasksChecked)
   const [newDescriptionTask, setNewDescriptionTask] = useState<string>('')
 
+  const { createLocalStorage } = useLocalStorageHook()
+
   function handleCreateTask(event: FormEvent): void {
     event.preventDefault()
 
@@ -24,39 +27,26 @@ export function Home(props: IProps) {
 
     const data: ITask[] = [{ id: uuid(), description: newDescriptionTask }, ...tasksPending]
 
-    localStorage.setItem('@Ignite2022Desafio1:tasksPending', JSON.stringify(data))
-
     setTasksPending(data)
     setNewDescriptionTask('')
+    createLocalStorage({ key: 'Pending' }, data)
   }
 
   function handleToggleCheckTask(isChecked: boolean, task: ITask): void {
     const newTasksA = (isChecked ? tasksChecked : tasksPending).filter((item) => item.id !== task.id)
     const newTasksB = [task, ...(!isChecked ? tasksChecked : tasksPending)]
 
-    localStorage.setItem(
-      `@Ignite2022Desafio1:tasks${isChecked ? 'Checked' : 'Pending'}`,
-      JSON.stringify(newTasksA),
-    )
-
+    createLocalStorage({ key: isChecked ? 'Checked' : 'Pending' }, newTasksA)
     if (isChecked) { setTasksChecked(newTasksA) } else { setTasksPending(newTasksA) }
 
-    localStorage.setItem(
-      `@Ignite2022Desafio1:tasks${!isChecked ? 'Checked' : 'Pending'}`,
-      JSON.stringify(newTasksB),
-    )
-
+    createLocalStorage({ key: !isChecked ? 'Checked' : 'Pending' }, newTasksB)
     if (!isChecked) { setTasksChecked(newTasksB) } else { setTasksPending(newTasksB) }
   }
 
   function handleDeleteTask(isChecked: boolean, id: string): void {
     const newTasks = (isChecked ? tasksChecked : tasksPending).filter((item) => item.id !== id)
 
-    localStorage.setItem(
-      `@Ignite2022Desafio1:tasks${isChecked ? 'Checked' : 'Pending'}`,
-      JSON.stringify(newTasks),
-    )
-
+    createLocalStorage({ key: isChecked ? 'Checked' : 'Pending' }, newTasks)
     if (isChecked) { setTasksChecked(newTasks) } else { setTasksPending(newTasks) }
   }
 
