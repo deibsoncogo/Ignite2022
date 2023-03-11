@@ -53,7 +53,7 @@ export function TaskList({ tasksPending, tasksChecked, handleTasksPending, handl
         <S.WarningTask>
           <span><MdFavoriteBorder /></span>
           <strong>Você não tem nenhuma tarefa pendente</strong>
-          <p>Parabens, muito sucesso para você</p>
+          <p>Parabéns, muito sucesso para você</p>
         </S.WarningTask>
       )}
 
