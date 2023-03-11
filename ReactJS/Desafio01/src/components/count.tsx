@@ -13,7 +13,7 @@ export function Count({ tasksPending, tasksChecked }: IProps) {
   return (
     <S.Count>
       <div>
-        <p>Tarefas criadas</p> <strong>{tasksTotal}</strong>
+        <p>Criadas</p> <strong>{tasksTotal}</strong>
       </div>
 
       <div>

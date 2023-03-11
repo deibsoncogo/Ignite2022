@@ -12,7 +12,7 @@ export const Count = styled.aside`
   div {
     display: inline-flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
 
     gap: 7px;
@@ -29,6 +29,8 @@ export const Count = styled.aside`
       color: ${({ theme }) => theme.gray200};
       font-weight: 700;
       font-size: 0.75rem;
+
+      white-space: nowrap;
 
       background-color: ${({ theme }) => theme.gray400}
     }
