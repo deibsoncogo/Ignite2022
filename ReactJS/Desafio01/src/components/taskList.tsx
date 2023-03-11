@@ -1,4 +1,5 @@
-import { FaCheckCircle, FaCircleNotch, FaTrash } from 'react-icons/fa'
+import { useState } from 'react'
+import { FaAngleDown, FaAngleUp, FaCheckCircle, FaCircleNotch, FaTrash } from 'react-icons/fa'
 import { MdAttachFile, MdFavoriteBorder } from 'react-icons/md'
 import { useLocalStorageHook } from '../hooks/localStorageHook'
 import { ITask } from '../interfaces/task'
@@ -12,6 +13,8 @@ interface IProps {
 }
 
 export function TaskList({ tasksPending, tasksChecked, handleTasksPending, handleTasksChecked }: IProps) {
+  const [isVisibleTasksChecked, setIsVisibleTasksChecked] = useState(false)
+
   const { createLocalStorage } = useLocalStorageHook()
 
   function handleToggleCheckTask(isChecked: boolean, task: ITask): void {
@@ -30,6 +33,10 @@ export function TaskList({ tasksPending, tasksChecked, handleTasksPending, handl
 
     createLocalStorage({ key: isChecked ? 'Checked' : 'Pending' }, newTasks)
     if (isChecked) { handleTasksChecked(newTasks) } else { handleTasksPending(newTasks) }
+  }
+
+  function handleToggleVisibleTasksChecked(): void {
+    setIsVisibleTasksChecked(!isVisibleTasksChecked)
   }
 
   return (
@@ -69,6 +76,12 @@ export function TaskList({ tasksPending, tasksChecked, handleTasksPending, handl
       )}
 
       {tasksChecked.length > 0 && (
+        <S.ButtonVisibleTaskChecked type="button" onClick={handleToggleVisibleTasksChecked}>
+          <div /> {isVisibleTasksChecked ? <FaAngleUp /> : <FaAngleDown />} <div />
+        </S.ButtonVisibleTaskChecked>
+      )}
+
+      {tasksChecked.length > 0 && isVisibleTasksChecked && (
         <>
           {tasksChecked.map((task) => (
             <S.Task isCheck key={task.id}>

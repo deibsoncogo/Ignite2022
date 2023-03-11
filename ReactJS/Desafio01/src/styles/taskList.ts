@@ -80,3 +80,31 @@ export const Task = styled.div<ITask>`
     text-decoration: ${({ isCheck }) => (isCheck ? 'line-through' : 'none')};
   }
 `
+
+export const ButtonVisibleTaskChecked = styled.button`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  gap: 5px;
+  border: 0;
+
+  color: ${({ theme }) => theme.gray300};
+  font-size: 0;
+
+  background-color: transparent;
+
+  div {
+    width: 100%;
+    height: 1px;
+    border-radius: 999px;
+
+    background-color: ${({ theme }) => theme.gray400};
+  }
+
+  :hover, :focus {
+    color: ${({ theme }) => theme.gray200};
+  }
+`
