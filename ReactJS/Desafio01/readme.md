@@ -7,6 +7,8 @@ Nesse desafio foi desenvolvido uma aplicação de controle de tarefas no formato
 
 #reactjs #typescript #styledcomponents #vite #localStorage #reactIcons #uuid #component #hook #eslint #dev #frontend #rocketseat
 
+Clique [aqui](https://ignite2022desafio1.vercel.app/) para acessar o site em produção.
+
 ## Executando a aplicação
 Utilize o comando abaixo para instalar as dependências necessárias:
 ```bash
