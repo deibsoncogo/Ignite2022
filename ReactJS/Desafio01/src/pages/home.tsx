@@ -4,6 +4,7 @@ import { HiPlus } from 'react-icons/hi'
 import { MdAttachFile } from 'react-icons/md'
 import { v4 as uuid } from 'uuid'
 import logo from '../assets/logo.svg'
+import { Count } from '../components/count'
 import { useLocalStorageHook } from '../hooks/localStorageHook'
 import { ITask } from '../interfaces/task'
 import * as S from '../styles/home'
@@ -71,17 +72,7 @@ export function Home(props: IProps) {
 
       <S.Main>
         <section>
-          <S.Count>
-            <div>
-              <p>Tarefas criadas</p>
-              <strong>{tasksPending.length + tasksChecked.length}</strong>
-            </div>
-
-            <div>
-              <p>Concluídas</p>
-              <strong>{`${tasksChecked.length} de ${tasksPending.length + tasksChecked.length}`}</strong>
-            </div>
-          </S.Count>
+          <Count tasksPending={tasksPending.length} tasksChecked={tasksChecked.length} />
 
           <S.Task>
             {tasksPending.length === 0 && tasksChecked.length === 0 ? (
