@@ -53,6 +53,11 @@ export const Task = styled.div<ITask>`
 
   background-color: ${({ theme }) => theme.gray500};
 
+  :hover, :focus {
+    border-color: ${({ theme }) => theme.gray300};
+    background-color: ${({ theme }) => theme.gray400};
+  }
+
   button {
     border: 0;
 
@@ -65,8 +70,19 @@ export const Task = styled.div<ITask>`
       font-size: 1rem;
     }
 
+    &[data-type=check]:focus {
+      outline-offset: 2px;
+      outline: 2px solid;
+
+      border-radius: 50%;
+    }
+
     &[data-type=trash] {
       color: ${({ theme }) => theme.gray300};
+
+      :hover, :focus {
+        color: ${({ theme }) => theme.danger};
+      }
     }
   }
 

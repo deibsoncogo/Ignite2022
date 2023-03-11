@@ -51,7 +51,7 @@ export function TaskList({ tasksPending, tasksChecked, handleTasksPending, handl
 
       {tasksPending.length === 0 && tasksChecked.length > 0 && (
         <S.WarningTask>
-          <span><MdFavoriteBorder /></span>
+          <MdFavoriteBorder />
           <strong>Você não tem nenhuma tarefa pendente</strong>
           <p>Parabéns, muito sucesso para você</p>
         </S.WarningTask>

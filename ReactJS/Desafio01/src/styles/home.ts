@@ -39,11 +39,15 @@ export const Aside = styled.aside`
       width: 90%;
       height: 100%;
       padding: 0 20px;
-      border: 0;
+      border: 2px solid ${({ theme }) => theme.gray400};
       border-radius: 8px;
 
       color: ${({ theme }) => theme.gray300};
       background-color: ${({ theme }) => theme.gray500};
+
+      :hover, :focus {
+        border-color: ${({ theme }) => theme.gray300};
+      }
     }
 
     button {
@@ -70,7 +74,7 @@ export const Aside = styled.aside`
       }
 
       :hover, :focus {
-        opacity: 0.9;
+        background-color: ${({ theme }) => theme.purpleDark};
       }
     }
   }
